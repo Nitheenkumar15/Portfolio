@@ -354,7 +354,7 @@ export default function Home() {
                     whileHover={{ scale: 1.05 }}
                     className="inline-block mt-3 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold"
                   >
-                    Successfully Completed with 78% CGPA
+                    Degree Awarded with 78% CGPA | Duration: 2024 – 2026
                   </motion.div>
                 </div>
 

@@ -31,7 +31,7 @@ drawHeader('Educational Qualifications');
 doc.font('Helvetica-Bold').fontSize(10).text('Master of Computer Applications (MCA)', { continued: true });
 doc.font('Helvetica').text(' | Arul Anandar College (Autonomous), Karumathur', { align: 'left' });
 doc.text('Madurai Kamaraj University');
-doc.text('Successfully Completed with 78% CGPA | Duration: 2024 - 2026');
+doc.text('Degree Awarded with 78% CGPA | Duration: 2024 - 2026');
 doc.moveDown(0.3);
 doc.font('Helvetica-Bold').fontSize(10).text('Bachelor of Science (B.Sc.) in Computer Science', { continued: true });
 doc.font('Helvetica').text(' | Meenakshi Ammal Arts and Science College, Uthiramerur', { align: 'left' });
