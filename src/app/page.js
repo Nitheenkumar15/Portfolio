@@ -532,6 +532,50 @@ export default function Home() {
               ))}
             </ul>
           </motion.div>
+
+          <motion.div
+            variants={fadeInUp}
+            whileHover={{ y: -5 }}
+            className="bg-[#121212] hover:bg-[#161616] transition-colors border border-white/5 rounded-2xl p-8 group relative overflow-hidden mt-8"
+          >
+            {/* Hover dash effect */}
+            <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-500 to-transparent -translate-x-[100%] group-hover:animate-shimmer delay-150"></div>
+
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-6">
+              <div>
+                <h3 className="text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors">Smart Government Bus Portal</h3>
+                <div className="flex flex-wrap gap-2 mt-3">
+                  {["PHP", "JavaScript", "Razorpay", "MySQL", "Tailwind CSS"].map((tech) => (
+                    <span key={tech} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <ul className="space-y-3 text-gray-400">
+              {[
+                "Engineered a digital web-based ticketing system to replace paper tickets with secure daily, monthly, and yearly e-passes.",
+                "Integrated Razorpay Payment Gateway for processing credit cards, UPI, and netbanking transactions securely.",
+                "Architected a comprehensive Admin Dashboard featuring user management, bus route network codes, and real-time revenue analytics.",
+                "Built an anti-fraud boarding verification system validating user pass expiry and enforcing daily transit limits.",
+                "Implemented PHPMailer for automated SMTP triggers confirming user registrations and payment email receipts."
+              ].map((point, index) => (
+                <motion.li
+                  key={index}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="flex gap-3"
+                >
+                  <ChevronRight size={20} className="text-cyan-400 flex-shrink-0 mt-0.5" />
+                  <span>{point}</span>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
         </motion.section>
 
         {/* 6️⃣ Experience & Achievements */}
