@@ -23,7 +23,7 @@ import {
   AlertCircle
 } from "lucide-react";
 
-const ROLES = ["Frontend Developer", "React Enthusiast", "UI/UX Lover", "Creative Problem Solver"];
+const ROLES = ["Full Stack Developer", "React Enthusiast", "UI/UX Lover", "Creative Problem Solver"];
 
 export default function Home() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -190,7 +190,7 @@ export default function Home() {
               className="text-indigo-400 font-medium tracking-wide text-sm md:text-base uppercase flex items-center gap-2"
             >
               <span className="w-12 h-[2px] bg-indigo-500 rounded-full"></span>
-              Aspiring Front End Developer
+              Aspiring Full Stack Developer
             </motion.h2>
             <motion.h1
               variants={slideInLeft}
@@ -320,11 +320,11 @@ export default function Home() {
                 className="h-1 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-full"
               ></motion.div>
               <p className="text-gray-400 leading-relaxed text-lg">
-                Frontend Developer with hands-on experience in JavaScript, React, and Node.js.
-                Skilled in building responsive web applications, API integration, and clean UI development.
+                Results-driven Full Stack Developer with expertise in designing, developing, and deploying scalable web applications using modern JavaScript, React.js, and Node.js.
+                Adept at engineering robust RESTful APIs, architecting optimal database schemas, and building responsive, mobile-first user interfaces.
               </p>
               <p className="text-gray-400 leading-relaxed text-lg">
-                Seeking an opportunity to contribute to modern web projects while expanding technical expertise. I enjoy turning complex problems into simple, beautiful, and intuitive designs.
+                Passionate about software architecture, optimizing application performance, and delivering high-quality user experiences. Looking to leverage my technical proficiency in agile environments to build next-generation software solutions.
               </p>
             </motion.div>
             {/* Education Box */}
@@ -652,7 +652,7 @@ export default function Home() {
                     <Briefcase size={24} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold">Full Stack Developer Intern</h3>
+                    <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-cyan-400">Full Stack Developer Intern</h3>
                     <div className="flex flex-wrap items-center gap-2 mt-1">
                       <p className="text-gray-400 text-sm">WilTeck • 1 Month • Madurai</p>
                       <span className="text-indigo-400/50 text-[10px] hidden md:inline">•</span>
@@ -662,10 +662,10 @@ export default function Home() {
                 </div>
                 <ul className="space-y-3 text-gray-400 text-sm">
                   {[
-                    "Developed responsive UI components using HTML, CSS, and JavaScript.",
-                    "Debugged and resolved cross-browser UI issues improving application usability.",
-                    "Collaborated with developers using Git and GitHub for version control.",
-                    "Assisted in backend integration and database operations."
+                    "Spearheaded the development of dynamic and responsive user interface components utilizing HTML, CSS, and modern JavaScript.",
+                    "Identified, debugged, and resolved complex cross-browser compatibility issues, enhancing overall system reliability and UX.",
+                    "Collaborated effectively within an agile team framework utilizing Git and GitHub for seamless version control pipelines.",
+                    "Assisted in back-end system integration and optimized MySQL database operations for streamlined application performance."
                   ].map((point, i) => (
                     <motion.li
                       key={i}

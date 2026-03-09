@@ -13,7 +13,7 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "Nitheenkumar | Creative Frontend Developer",
+  title: "Nitheenkumar | Creative Full Stack Developer",
   description: "A dynamic, high-performance portfolio application built with Next.js, React, and Tailwind CSS. It features sleek Framer Motion animations, interactive 3D particle effects, API-driven contact routing via Nodemailer, and an elegant, responsive design showcasing the technical skills, projects, and achievements of Nitheenkumar, a modern Web Developer.",
 };
 

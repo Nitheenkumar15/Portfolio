@@ -3,105 +3,124 @@ const fs = require('fs');
 
 const doc = new PDFDocument({
     margin: 50,
+    size: 'A4',
     info: {
-        Title: 'Resume - Nitheenkumar P',
+        Title: 'Nitheenkumar_P_Resume',
         Author: 'Nitheenkumar P',
-        Keywords: 'Frontend Developer, React, JavaScript, Node.js, Portfollio, Web Developer'
+        Keywords: 'Full Stack Developer, Software Engineer, Frontend, Backend, React.js, Node.js, JavaScript, MySQL, Web Development, REST APIs, Agile',
+        Subject: 'Resume of Nitheenkumar P'
     }
 });
 doc.pipe(fs.createWriteStream('public/resume.pdf'));
 
+// Helper function for perfectly standard ATS section headers
 const drawHeader = (text) => {
     doc.moveDown(0.5);
-    doc.font('Helvetica-Bold').fontSize(11).text(text.toUpperCase());
-    doc.moveTo(doc.x, doc.y).lineTo(doc.x + 500, doc.y).strokeColor('#cccccc').stroke();
-    doc.moveDown(0.5);
+    doc.font('Helvetica-Bold').fontSize(12).fillColor('#000000').text(text.toUpperCase());
+    // Draw an ATS-safe line below the header
+    doc.moveTo(doc.x, doc.y).lineTo(doc.x + 495, doc.y).strokeColor('#000000').lineWidth(1).stroke();
+    doc.moveDown(0.4);
 };
 
-// Title
-doc.font('Helvetica-Bold').fontSize(20).text('NITHEENKUMAR P', { align: 'center' });
-doc.font('Helvetica').fontSize(10).text('Madurai, Tamil Nadu | +91 7094998196 | nitheenkumar18@gmail.com', { align: 'center' });
-doc.text('LinkedIn: linkedin.com/in/nitheenkumar15 | GitHub: github.com/Nitheenkumar15', { align: 'center' });
-doc.moveDown(0.5);
-
-drawHeader('Career Objective');
-doc.font('Helvetica').fontSize(10).text('Frontend Developer with hands-on experience in JavaScript, React, and Node.js. Skilled in building responsive web applications, API integration, and clean UI development. Seeking an opportunity to contribute to modern web projects while expanding technical expertise.');
-
-drawHeader('Educational Qualifications');
-doc.font('Helvetica-Bold').fontSize(10).text('Master of Computer Applications (MCA)', { continued: true });
-doc.font('Helvetica').text(' | Arul Anandar College (Autonomous), Karumathur', { align: 'left' });
-doc.text('Madurai Kamaraj University');
-doc.text('Degree Awarded with 78% CGPA | Duration: 2024 - 2026');
-doc.moveDown(0.3);
-doc.font('Helvetica-Bold').fontSize(10).text('Bachelor of Science (B.Sc.) in Computer Science', { continued: true });
-doc.font('Helvetica').text(' | Meenakshi Ammal Arts and Science College, Uthiramerur', { align: 'left' });
-doc.text('University of Madras');
-doc.text('Graduated with Distinction - 75% CGPA | Duration: 2021 - 2024');
-
-drawHeader('Technical Skills');
-const skills = [
-    'Languages: JavaScript',
-    'Frontend: HTML5, CSS3, React.js',
-    'Backend: Node.js, REST API Development',
-    'Database: MySQL',
-    'Tools: Git, GitHub, VS Code'
-];
-skills.forEach(skill => {
-    doc.font('Helvetica').text(`•    ${skill}`, { indent: 10 });
-});
-
-drawHeader('Projects');
-doc.font('Helvetica-Bold').fontSize(10).text('AAC Alumni Management System', { continued: true });
-doc.font('Helvetica').text(' | Live link: https://coe.aactni.edu.in/apr26/24MCA514/');
-doc.font('Helvetica-Oblique').text('Tech Stack: React.js, Node.js, MySQL');
+// --- HEADER SECTION ---
+// ATS parsers look for name heavily weighted at the top
+doc.font('Helvetica-Bold').fontSize(22).fillColor('#000000').text('NITHEENKUMAR P', { align: 'center' });
 doc.moveDown(0.2);
-const projectPoints = [
-    'Developed a full-stack alumni platform enabling registration, profile management, and communication.',
-    'Built RESTful APIs using Node.js and integrated MySQL for secure data storage.',
-    'Implemented responsive UI using React ensuring cross-browser compatibility.',
-    'Improved system usability by creating admin features for managing alumni data.'
+
+// Standardized contact info layout for ATS
+doc.font('Helvetica').fontSize(10).text('Madurai, Tamil Nadu | Phone: +91 7094998196 | Email: nitheenkumar18@gmail.com', { align: 'center' });
+doc.text('Portfolio: portfolio-navy-pi-87.vercel.app | LinkedIn: linkedin.com/in/nitheenkumar15 | GitHub: github.com/Nitheenkumar15', { align: 'center' });
+doc.moveDown(0.2);
+
+// --- PROFESSIONAL SUMMARY ---
+drawHeader('Professional Summary');
+doc.font('Helvetica').fontSize(10).text(
+    'Results-driven Full Stack Developer with expertise in designing, developing, and deploying scalable web applications using modern JavaScript, React.js, and Node.js. Adept at engineering robust RESTful APIs, architecting optimal database schemas in MySQL, and building responsive, mobile-first user interfaces. Passionate about software architecture, optimizing application performance, and delivering high-quality user experiences in agile software development environments.'
+);
+
+// --- TECHNICAL SKILLS ---
+drawHeader('Technical Skills');
+const technicalSkills = [
+    { category: 'Frontend', skills: 'HTML5, CSS3, JavaScript (ES6+), React.js, Tailwind CSS, Bootstrap, Responsive UI' },
+    { category: 'Backend', skills: 'Node.js, Express.js, RESTful APIs, PHP, Authentication (Bcrypt)' },
+    { category: 'Database', skills: 'MySQL, Relational Database Design, Data Modeling, Query Optimization' },
+    { category: 'Tools & Workflows', skills: 'Git, GitHub, VS Code, Postman, Agile Methodology, Web Performance Optimization' }
 ];
-projectPoints.forEach(point => {
-    doc.font('Helvetica').text(`•    ${point}`, { indent: 10 });
+
+// Formatting skills in typical ATS key-value style
+technicalSkills.forEach(item => {
+    doc.font('Helvetica-Bold').fontSize(10).text(`${item.category}: `, { continued: true });
+    doc.font('Helvetica').text(item.skills);
 });
 
-drawHeader('Internships / Training');
-doc.font('Helvetica-Bold').fontSize(10).text('Full Stack Developer Intern | WilTeck | 1 Month | Madurai');
+// --- PROFESSIONAL EXPERIENCE ---
+drawHeader('Professional Experience');
+doc.font('Helvetica-Bold').fontSize(11).text('Full Stack Developer Intern | WilTeck - Madurai, Tamil Nadu');
+doc.font('Helvetica-Oblique').fontSize(10).text('Duration: 1 Month');
 doc.moveDown(0.2);
 const internPoints = [
-    'Developed responsive UI components using HTML, CSS, and JavaScript.',
-    'Debugged and resolved cross-browser UI issues improving application usability.',
-    'Collaborated with developers using Git and GitHub for version control.',
-    'Assisted in backend integration and database operations.'
+    'Spearheaded the development of dynamic and responsive user interface components utilizing HTML, CSS, and modern JavaScript, leading to enhanced user engagement.',
+    'Identified, debugged, and resolved complex cross-browser compatibility issues, enhancing overall system reliability and User Experience (UX).',
+    'Collaborated effectively within an agile team framework utilizing Git and GitHub for seamless version control and CI/CD pipelines.',
+    'Assisted in back-end system integration and optimized MySQL database operations for streamlined application performance.'
 ];
 internPoints.forEach(point => {
-    doc.font('Helvetica').text(`•    ${point}`, { indent: 10 });
+    doc.font('Helvetica').text(`•  ${point}`, { indent: 15 });
 });
-doc.font('Helvetica-Oblique').fontSize(9).text('Certificate ID: WTMDU866', { indent: 10 });
 
-drawHeader('Certifications');
+// --- PROJECTS ---
+drawHeader('Projects');
+doc.font('Helvetica-Bold').fontSize(11).text('AAC Alumni Management System');
+doc.font('Helvetica-Oblique').fontSize(10).text('Technologies Used: React.js, Node.js, Express.js, MySQL, REST API');
+doc.moveDown(0.2);
+const projectPoints1 = [
+    'Architected and deployed a comprehensive full-stack platform facilitating user registration, profile management, and network communication for college alumni.',
+    'Engineered secure, scalable RESTful APIs using Node.js and Express.js to interface seamlessly with a normalized MySQL database.',
+    'Implemented state management and dynamic routing using React.js to deliver a seamless Single Page Application (SPA) experience.',
+    'Optimized database queries and backend logic, resulting in highly efficient data retrieval and robust application scalability.'
+];
+projectPoints1.forEach(point => {
+    doc.font('Helvetica').text(`•  ${point}`, { indent: 15 });
+});
+
+// --- EDUCATION ---
+drawHeader('Education');
+doc.font('Helvetica-Bold').fontSize(11).text('Master of Computer Applications (MCA) | 2024 - 2026');
+doc.font('Helvetica').fontSize(10).text('Arul Anandar College (Autonomous), Madurai Kamaraj University');
+doc.font('Helvetica').text('Cumulative Score: 78% CGPA');
+doc.moveDown(0.3);
+
+doc.font('Helvetica-Bold').fontSize(11).text('Bachelor of Science (B.Sc.) in Computer Science | 2021 - 2024');
+doc.font('Helvetica').fontSize(10).text('Meenakshi Ammal Arts and Science College, University of Madras');
+doc.font('Helvetica').text('Cumulative Score: 75% CGPA (Graduated with Distinction)');
+
+// --- CERTIFICATIONS & ACHIEVEMENTS ---
+drawHeader('Certifications & Achievements');
 const certs = [
+    'International Conference Presenter ("Machine Learning Algorithms in Risk Assessment") - Impact of AI in Sports and Computing, 2026',
+    'Smart Techies Award - Outstanding Innovation Recognition for "Digital Permission Management System", 2025',
     'Introduction to Front End Development - SimpliLearn',
     'Getting Started with NodeJS - SimpliLearn',
     'Azure Fundamentals - SimpliLearn',
-    'Introduction to the Fundamentals of Databases - SimpliLearn',
-    'Introduction to MS Excel - SimpliLearn'
+    'Introduction to the Fundamentals of Databases - SimpliLearn'
 ];
 certs.forEach(cert => {
-    doc.font('Helvetica').text(`•    ${cert}`, { indent: 10 });
+    doc.font('Helvetica').text(`•  ${cert}`, { indent: 15 });
 });
-
-doc.moveDown(0.5);
-
-drawHeader('Soft Skills');
-const softSkills = [
-    'Problem Solving',
-    'Communication Skills',
-    'Time Management',
-    'Adaptability',
-    'Team Player',
-    'Attention to Detail'
-];
-doc.font('Helvetica').text('•    ' + softSkills.join('    •    '), { indent: 10 });
+// Add Certificate to Resume as an Image
+doc.addPage();
+// Center and title the certificate page
+doc.font('Helvetica-Bold').fontSize(14).text('PRESENTATION CERTIFICATE - INTERNATIONAL CONFERENCE', { align: 'center' });
+doc.moveDown(1.5);
+// Draw the image onto the PDF
+try {
+    doc.image('public/Paper_Presentation.jpeg', {
+        fit: [450, 600],
+        align: 'center',
+        valign: 'top'
+    });
+} catch (e) {
+    console.warn("Could not load public/Paper_Presentation.jpeg for PDF generation: ", e);
+}
 
 doc.end();
