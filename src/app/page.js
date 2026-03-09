@@ -707,6 +707,7 @@ export default function Home() {
 
               <div className="space-y-4">
                 {[
+                  { title: "JavaScript for Beginners", issuer: "SimpliLearn", date: "9th March 2026", code: "9937360", color: "yellow", file: "JavaScript_for_Beginners.png" },
                   { title: "Introduction to Front End Development", issuer: "SimpliLearn", date: "2nd March 2026", code: "9911853", color: "cyan", file: "Front_End_Development.pdf" },
                   { title: "Getting Started with NodeJS", issuer: "SimpliLearn", date: "2nd March 2026", code: "9912200", color: "indigo", file: "NodeJS.pdf" },
                   { title: "Azure Fundamentals", issuer: "SimpliLearn", date: "23rd February 2026", code: "9880177", color: "emerald", file: "Azure_Fundamentals.pdf" },

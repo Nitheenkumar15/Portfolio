@@ -70,7 +70,8 @@ internPoints.forEach(point => {
 
 // --- PROJECTS ---
 drawHeader('Projects');
-doc.font('Helvetica-Bold').fontSize(11).text('AAC Alumni Management System');
+doc.font('Helvetica-Bold').fontSize(11).text('AAC Alumni Management System', { continued: true });
+doc.font('Helvetica-Oblique').fontSize(10).text(' | Live: coe.aactni.edu.in/apr26/24MCA514/');
 doc.font('Helvetica-Oblique').fontSize(10).text('Technologies Used: React.js, Node.js, Express.js, MySQL, REST API');
 doc.moveDown(0.2);
 const projectPoints1 = [
@@ -94,11 +95,10 @@ doc.font('Helvetica-Bold').fontSize(11).text('Bachelor of Science (B.Sc.) in Com
 doc.font('Helvetica').fontSize(10).text('Meenakshi Ammal Arts and Science College, University of Madras');
 doc.font('Helvetica').text('Cumulative Score: 75% CGPA (Graduated with Distinction)');
 
-// --- CERTIFICATIONS & ACHIEVEMENTS ---
-drawHeader('Certifications & Achievements');
+// --- CERTIFICATIONS ---
+drawHeader('Certifications');
 const certs = [
-    'International Conference Presenter ("Machine Learning Algorithms in Risk Assessment") - Impact of AI in Sports and Computing, 2026',
-    'Smart Techies Award - Outstanding Innovation Recognition for "Digital Permission Management System", 2025',
+    'JavaScript for Beginners - SimpliLearn',
     'Introduction to Front End Development - SimpliLearn',
     'Getting Started with NodeJS - SimpliLearn',
     'Azure Fundamentals - SimpliLearn',
@@ -107,20 +107,5 @@ const certs = [
 certs.forEach(cert => {
     doc.font('Helvetica').text(`•  ${cert}`, { indent: 15 });
 });
-// Add Certificate to Resume as an Image
-doc.addPage();
-// Center and title the certificate page
-doc.font('Helvetica-Bold').fontSize(14).text('PRESENTATION CERTIFICATE - INTERNATIONAL CONFERENCE', { align: 'center' });
-doc.moveDown(1.5);
-// Draw the image onto the PDF
-try {
-    doc.image('public/Paper_Presentation.jpeg', {
-        fit: [450, 600],
-        align: 'center',
-        valign: 'top'
-    });
-} catch (e) {
-    console.warn("Could not load public/Paper_Presentation.jpeg for PDF generation: ", e);
-}
 
 doc.end();
