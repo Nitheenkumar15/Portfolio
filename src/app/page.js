@@ -23,7 +23,7 @@ import {
   AlertCircle
 } from "lucide-react";
 
-const ROLES = ["Full Stack Developer", "React Enthusiast", "UI/UX Lover", "Creative Problem Solver"];
+const ROLES = ["Frontend Developer", "React Enthusiast", "Creative Problem Solver"];
 
 export default function Home() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -190,7 +190,7 @@ export default function Home() {
               className="text-indigo-400 font-medium tracking-wide text-sm md:text-base uppercase flex items-center gap-2"
             >
               <span className="w-12 h-[2px] bg-indigo-500 rounded-full"></span>
-              Aspiring Full Stack Developer
+              Aspiring Frontend Developer
             </motion.h2>
             <motion.h1
               variants={slideInLeft}
@@ -320,7 +320,7 @@ export default function Home() {
                 className="h-1 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-full"
               ></motion.div>
               <p className="text-gray-400 leading-relaxed text-lg">
-                Results-driven Full Stack Developer with expertise in designing, developing, and deploying scalable web applications using modern JavaScript, React.js, and Node.js.
+                Results-driven Frontend Developer with expertise in designing, developing, and deploying scalable web applications using modern JavaScript, React.js, and Node.js.
                 Adept at engineering robust RESTful APIs, architecting optimal database schemas, and building responsive, mobile-first user interfaces.
               </p>
               <p className="text-gray-400 leading-relaxed text-lg">
@@ -652,7 +652,7 @@ export default function Home() {
                     <Briefcase size={24} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-cyan-400">Full Stack Developer Intern</h3>
+                    <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-cyan-400">Frontend Developer Intern</h3>
                     <div className="flex flex-wrap items-center gap-2 mt-1">
                       <p className="text-gray-400 text-sm">WilTeck • 1 Month • Madurai</p>
                       <span className="text-indigo-400/50 text-[10px] hidden md:inline">•</span>
